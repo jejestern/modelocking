@@ -85,18 +85,17 @@ plt.legend()
 plt.title('Measured photodiode current of a Si diode, Continuous')
 plt.savefig('Si_con.pdf')
 
-#GaP continuous
+#GaP modelocking
 P_Ga = T_Ga*P_tot
 Curr_Gaml = Gap_ml/R
 
-fit_Gaml = np.poly1d(np.polyfit(P_Ga, Curr_Gaml, 2))
 
 plt.figure()
 plt.plot(P_Ga, Curr_Gaml, 'rx', label='Measured data') 
-plt.plot(x_range_Ga, fit_Gaml(x_range_Ga), 'k--', label='Fit')
 plt.xlabel('Transmitted power P [mW]')
 plt.ylabel(r'Photodiode current $i_{PD}$ [mA]')
 plt.legend()
+plt.xlim(-20, 620)
 plt.title('Measured photodiode current of a GaP diode, Modelocking')
 plt.savefig('Gap_ml.pdf')
 plt.show()
